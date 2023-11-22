@@ -15,6 +15,7 @@ $(document).ready(function () {
   $('body').on('click', 'img', function () {
     if (clickedPokemanID !== $(this).attr('id')) {
       clickedPokemanID = $(this).attr('id');
+      console.log(`fetching pokemon ${clickedPokemanID}`);
       $.get(`https://pokeapi.co/api/v2/pokemon/${clickedPokemanID}`, function (result) {
         $('#aside h3').html(result.name);
         $('#aside img').attr({ src: result.sprites.front_default, alt: result.name });
